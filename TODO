@@ -1,0 +1,15 @@
+Configurar o .env com os parametros do Sisseg 
+
+Configurar os parametros no Config.Database 
+
+Criar o controller de Auth 
+
+Criar a Model de Funcionario
+
+Mudar no config.auth o provider da Model 
+
+Configurar Rotas 
+
+
+
+

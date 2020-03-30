@@ -12,5 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth\login');
 });
+
+Route::get('/login', 'AuthController@login')->name('login');
+Route::post('/entrar', 'AuthController@entrar');
+
+// Auth::routes();
+
+ Route::get('/home', 'HomeController@index')->name('home');
+ Route::get('/mapa', 'MapaController@index')->name('mapa');
+ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
