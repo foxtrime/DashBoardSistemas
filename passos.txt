@@ -1,0 +1,22 @@
+entrada
+   novo
+
+   retorno
+      isenção idoso - 18
+      prescrição de debitos - 18
+      baixa de debitos - 18
+      imunidade tributaria - 18
+      isenção ITBI - 18
+      informação de situação fiscal - PARAR
+      impugnação de debitos - PARAR
+      outro - PARAR
+
+   cumprimento de exigencia
+      isenção idoso - 31
+         
+      prescrição de debitos - 37
+      imunidade tributaria - 56
+      certidao regularidade fiscal - 59
+      isenção ITBI - 64
+
+saida

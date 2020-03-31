@@ -18,14 +18,14 @@
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ url('/logout') }}" >
+							<a class="dropdown-item" href="{{ route('logout') }}" >
 								<i class="fa fa-sign-out pull-right"></i> Sair do sistema
 							</a>
 						</li>
 					</ul>
 				</li>
 
-				<Notificacoes></Notificacoes>
+				{{-- <Notificacoes></Notificacoes> --}}
 	
 			</ul>
 		</nav>

@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
   
-		<title>Gestão de Pessoal da GCMM</title>
+		<title>Dashboard</title>
   
 		<!--     Fonts and icons     -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" rel="stylesheet">
@@ -31,6 +31,8 @@
 		{{-- <link rel="stylesheet" href="{{ asset('icheck/skins/flat/green.css') }}">  --}}
 		<link rel="stylesheet" href="{{ asset('icheck/skins/all.css') }}"> 
 
+		  
+		 
 	  	<link rel="stylesheet" href="{{ url(mix('/css/app.css')) }}">      
 	</head>
 	
@@ -44,8 +46,8 @@
 					<div class="left_col scroll-view">
 						<div class="navbar nav_title" style="border: 0; text-align: center">
 							<a href="{{ route('home')}}" class="site_title">
-								<span style="color: #bfa15f; ">Tropa</span>
-								<span style="font-size: 8px">V1.0.0</span> </a>
+								<span style="color: #bfa15f; ">Dashboard</span>
+								<span style="font-size: 8px">V1.0.0-C19</span> </a>
 						</div>
 
 						<div class="clearfix"></div>
@@ -96,7 +98,7 @@
 
 				<footer>
 					<div class="pull-right">
-						© 2020 Equipe de Desenvolvimento de Sistemas - Subsecretaria da Tecnologia da Informação - Prefeitura Municipal de Mesquita - RJ 
+						© 2018 Equipe de Desenvolvimento de Sistemas - Subsecretaria da Tecnologia da Informação - Prefeitura Municipal de Mesquita - RJ 
 					</div>
 					<div class="clearfix"></div>
 				</footer>
@@ -137,6 +139,59 @@
 		<script src="{{ asset('/js/components.js')}}"></script>
 		{{-- <script src="https://cdn.jsdelivr.net/npm/timepicker@1.11.14/jquery.timepicker.min.js"></script> --}}
 		
+
+		<!--  Google Maps Plugin  -->
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD88keSNZva3fJ2F01M6YOw78uf3xrtU1I&libraries=places&callback=initMap">
+		</script>
+
+
+
+		<script> 
+			
+			 
+			//mensagens de sucesso
+			@if (session('sucesso'))
+				$.notify("{{ session('sucesso') }}", "success");
+			@endif
+
+			//mensagem para os erros de acesso pela ACL
+			@if (session('erro_seguranca'))
+				funcoes.notificationRight("top", "right", "danger", "{{ session('erro_seguranca') }}"); 
+			@endif
+
+			@if (session('erro') || session('error'))
+				funcoes.notificationRight("top", "right", "danger", "{{ session('erro') }}"); 
+			@endif
+			
+			@if (session('warning') )
+				funcoes.notificationRight("top", "right", "warning", "{{ session('warning') }}"); 
+			@endif
+			
+			@if (session('sucesso_swal') )
+				console.log('suasdasd');
+				swal("{{ session('sucesso_swal') }}",' ','success');
+			@endif
+			
+			
+			//configura o toast
+			const Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 6000
+			});
+
+
+			// Testar se há algum erro, e mostrar a notificação 
+			var tempo = 0;
+			var incremento = 500;
+			@if ($errors->any())
+				@foreach ($errors->all() as $error)
+					setTimeout(function(){funcoes.notificationRight("top", "right", "danger", "{{ $error }}"); }, tempo);
+					tempo += incremento;
+				@endforeach
+			@endif
+		</script>
 
 		@stack('scripts')
 
