@@ -138,7 +138,7 @@ class MelhorEmCasaController extends Controller
 
 
 		
-		return view('melhoremcasa\home', compact('qtd_pacientes', 'qtd_pacientes_acompanhamento','vetor','gbairro','gcid','visitas'));
+		return view('melhoremcasa.home', compact('qtd_pacientes', 'qtd_pacientes_acompanhamento','vetor','gbairro','gcid','visitas'));
 	}
 
 
