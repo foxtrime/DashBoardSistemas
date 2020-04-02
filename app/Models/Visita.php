@@ -3,12 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use OwenIt\Auditing\Contracts\Auditable;
 
-class Visita extends Model implements Auditable
+class Visita extends Model 
 {
-    use \OwenIt\Auditing\Auditable, SoftDeletes;
+    protected $connection = 'mysql_mec'; //altera para conectar no outro banco
 
     protected $fillable =[
         'acompanhamento_id',

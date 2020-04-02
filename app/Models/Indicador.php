@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use OwenIt\Auditing\Contracts\Auditable;
 
-class Indicador extends Model implements Auditable
+
+class Indicador extends Model 
 {
-    use \OwenIt\Auditing\Auditable, SoftDeletes;
+    protected $connection = 'mysql_mec'; //altera para conectar no outro banco
 
     protected $fillable =[
     ];

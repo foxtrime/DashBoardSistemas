@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use OwenIt\Auditing\Contracts\Auditable;
 
-class Cid extends Model  implements Auditable
+class Cid extends Model 
 {
-    use \OwenIt\Auditing\Auditable;
+    protected $connection = 'mysql_mec'; //altera para conectar no outro banco
+    
     public $timestamps = false;
    
     protected $fillable =[

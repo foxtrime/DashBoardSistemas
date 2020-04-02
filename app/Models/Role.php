@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use OwenIt\Auditing\Contracts\Auditable;
 
-class Role extends Model  implements Auditable
+
+class Role extends Model  
 {
-	use \OwenIt\Auditing\Auditable;
-
+	
 	protected $connection = 'mysql_sisseg'; //altera para conectar no outro banco
 	protected $table = "roles";      //substitui o nome da tabela que tem as credenciais
 

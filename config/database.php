@@ -68,6 +68,21 @@ return [
             'strict' => false,
             'engine' => null,
         ],
+        
+        'mysql_sgf' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST_sgf', '127.0.0.1'),
+            'port' => env('DB_PORT_sgf', '3306'),
+            'database' => env('DB_DATABASE_sgf', 'forge'),
+            'username' => env('DB_USERNAME_sgf', 'forge'),
+            'password' => env('DB_PASSWORD_sgf', ''),
+            'unix_socket' => env('DB_SOCKET_sgf', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
 
         'mysql_sisseg' => [
             'driver' => 'mysql',

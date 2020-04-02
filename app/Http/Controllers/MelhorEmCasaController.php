@@ -121,18 +121,25 @@ class MelhorEmCasaController extends Controller
 		//dd($gcid);
 			
 
+		$visitas = [];
+
+		$visitas  = Visita::select(
+								DB::raw('count(*) quantidade '),
+								DB::raw("DATE_FORMAT(dt_visita,'%Y/%m') as mes")
+							)
+								
+					->where('dt_visita', '>=' , Carbon::now()->subMonths(24)->startOfMonth() )
+					->groupBy('mes')
+					->orderBy('mes')
+					->get();
+
 		
-
+		//dd($visitas);
 
 
 		
-		return view('melhoremcasa\home', compact('qtd_pacientes', 'qtd_pacientes_acompanhamento','vetor','gbairro','gcid'));
+		return view('melhoremcasa\home', compact('qtd_pacientes', 'qtd_pacientes_acompanhamento','vetor','gbairro','gcid','visitas'));
 	}
 
-
-	public function embreve($rotina)
-	{
-		return view ('embreve');
-	}
 
 }

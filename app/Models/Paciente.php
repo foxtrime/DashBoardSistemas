@@ -3,14 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use OwenIt\Auditing\Contracts\Auditable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Paciente extends Model implements Auditable
+class Paciente extends Model
 {
-    use \OwenIt\Auditing\Auditable, SoftDeletes;
-
     
+    protected $connection = 'mysql_mec'; //altera para conectar no outro banco
+
 
     protected $fillable =[
            'dt_cadastro',

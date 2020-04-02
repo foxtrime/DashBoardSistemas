@@ -16,19 +16,26 @@
 
 		<caixa 
 			numero={{ $vetor['qtd_visitas_MA'] }} icone="fas fa-medkit" titulo="Visitas no Mês" 
-			{{-- cor_percent="red" --}} percent="{{ $vetor['percvisitas_mes']}} " descricao=" mês passado">
+			{{-- cor_percent="red" --}} {{-- percent="{{ $vetor['percvisitas_mes']}} " descricao=" mês passado" --}}>
 		</caixa>
 	
 	</div>
 	
+	
 	<div class="row">
-		<div class="x_panel modal-content " style="width:40%; ">
+		<div class="x_panel modal-content ">
+			<div id="grafico_visitas" style="width:100%; height:300%;"></div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="x_panel modal-content " style="width:39%; margin:1px auto; ">
 			<div id="grafico" style="width:100%; height:300%;"></div>
 		</div>
-		<div class="x_panel modal-content " style="width:25%;">
+		<div class="x_panel modal-content " style="width:30%; margin:1px auto;" >
 			<div id="grafico2" style="width:100%; height:300%;"></div>
 		</div>
-		<div class="x_panel modal-content " style="width:25%;">
+		<div class="x_panel modal-content " style="height:322px; width:30%; margin:1px auto;">
 			<div id="aa" style="width:100%; height:300%;">
 				
 				<table class="table table-hover table-striped tabela_compacta" id="tb_cids">
@@ -96,6 +103,20 @@
 			legendas2.push("{{$v->codigo}}");
 			dados2.push({value:{{$v->qtd}}, name:"{{$v->codigo}}", type:"bar"});
       	@endforeach
+
+
+
+
+		let legendas_gr_visitas = [];
+      	let series_gr_visitas = [];
+
+		@foreach($visitas as $visita)
+			legendas_gr_visitas.push({!! json_encode($visita->mes) !!});
+			series_gr_visitas.push({!! json_encode($visita->quantidade) !!});
+      	@endforeach
+
+
+
 
 
 		//console.log(dados2) ;
@@ -227,7 +248,76 @@
 			}
 
 
+			/* ================================================================================= */
+			/* ================================================================================= */
+			/* ================================================================================= */
+			/* ================================================================================= */
+			/* ================================================================================= */
+			/* ================================================================================= */
+
+
+			var dom_visitas = document.getElementById("grafico_visitas");
+			var myChart_visitas 	= echarts.init(dom_visitas, 'macarons' );
+			var app = {};
+			option2 = null;
+
 			
+
+			option2 = {
+				title: {
+					text: 'Quantidade de Visitas por Mês',
+					/* subtext: 'Ultimos 12 meses', */
+					x:'center'
+				},
+				tooltip: {
+					trigger: 'axis',
+					axisPointer: {
+						type: 'cross'
+					}
+				},
+				toolbox: {
+					height : 6,
+					show : true,
+					itensize : 10,
+					feature : {
+						mark : {show: false},
+						saveAsImage : {show: true, title: 'Salva Imagem'},
+						dataView : {show: true, readOnly: true, title:'Dados'},
+						magicType: {
+							type: ['line', 'bar'],
+							title: {
+								line: 'Linha',
+								bar: 'Barras',
+							},
+						},
+						//restore : {show: true, title:'Restaura'},
+					}
+				},
+
+				xAxis:  {
+					type: 'category',
+					boundaryGap: false,
+					//data: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai','Jun','Jul','Ago','Set','Out', 'Nov' ,'Dez']
+					data: legendas_gr_visitas,
+					axisLabel:{textStyle:{fontSize:12}},
+					nameRotate: 90,
+				},
+				yAxis: {
+				},
+				series: [{
+					name: 'Valor',
+					type: 'line',
+					smooth: true,
+					showSymbol: false,
+					hoverAnimation: true,
+					data: series_gr_visitas
+				}]
+			};
+
+			
+			if (option2 && typeof option2 === "object") {
+				myChart_visitas.setOption(option2, true);
+			}
  
 		});
 
