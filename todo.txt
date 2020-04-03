@@ -1,0 +1,25 @@
+TODO: 
+Como saber quantos dias de atendimento o paciente está?
+E se ele for artendido uma segunda vez após a alta?
+
+emap -> equipe de apoio -> status apoio
+emad -> equipe médica 
+
+ad1 -> 90 dias
+ad2 -> 30 dias
+ad3 -> semanal
+
+
+admissão
+readmissão
+
+nome fisioterapeuta
+
+SEM PERFIL -> alta
+
+'ATENDIMENTO','APOIO','ALTA','INTERNAÇÃO','SEM PERFIL','ÓBITO','MUDANÇA DE MUNICÍPIO', 'ALTA ADMINISTRATIVA'
+
+'ENTREGA DE INSUMOS','FISIOTERAPEUTA','NUTRICIONISTA','PSICÓLOGO','ODONTÓLOGO','FONOAUDIÓLOGO','CURATIVO','COLETA','ASSISTENCIA SOCIAL','CLINICO GERAL','ENFERMEIRO','VACINA'
+
+DESTINO PÓS ALTA -> TEXTO LIVRE
+
