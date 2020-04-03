@@ -43,6 +43,19 @@ class MelhorEmCasaController extends Controller
 	{
 		
 		$pacientes 						= Paciente::all();
+
+
+		// PEGA OS ENDEREÇOS E CONCATENA COM A URL
+		// $pacientesa = [];
+		// foreach($pacientes as $paciente){
+		// 	$rua = $paciente->logradouro;
+		// 	$bairro = $paciente->bairro;
+		// 	$b = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$rua . $bairro.'&key=AIzaSyD88keSNZva3fJ2F01M6YOw78uf3xrtU1I';
+		// 	array_push($pacientesa, $b);
+		// }
+		// dd($pacientesa);
+		
+		
 		$qtd_pacientes 					= count($pacientes);
 		$qtd_pacientes_acompanhamento 	= Acompanhamento::where('ativo', true)->count();
 
@@ -138,8 +151,8 @@ class MelhorEmCasaController extends Controller
 
 
 		
-		return view('melhoremcasa.home', compact('qtd_pacientes', 'qtd_pacientes_acompanhamento','vetor','gbairro','gcid','visitas'));
-	}
+		return view('melhoremcasa.home', compact('qtd_pacientes', 'qtd_pacientes_acompanhamento','vetor','gbairro','gcid','pacientes','visitas'));
+			}
 
 
 }
