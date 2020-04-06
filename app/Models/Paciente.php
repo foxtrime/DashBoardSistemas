@@ -22,6 +22,8 @@ class Paciente extends Model
            'sexo',
            'cuidador',
            'sus',
+           'latitude',
+           'longitude',
            'bairro',
            'logradouro',
            'numero',

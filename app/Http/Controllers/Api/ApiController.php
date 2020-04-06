@@ -14,6 +14,20 @@ use App\Models\Cid;
 class ApiController extends Controller
 {
 
+	public function adicionaGeocodePaciente(Request $request)
+	{
+		$paciente = Paciente::where('id', $request->id)->first();
+
+		$paciente->latitude = $request->latitude;
+		$paciente->longitude = $request->longitude;
+		$paciente->save();
+        
+		return response()->json($paciente, 202);
+		//return response()->json("OK", 202);
+			
+	}
+
+
 	public function acompanhamentos()
     {
 		$acompanhamentos = Acompanhamento::with('paciente','visitas','cid','primeira_visita','ultima_visita')->get();

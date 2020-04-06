@@ -30,12 +30,14 @@ Route::group(['middleware' => ['auth']], function () {
 
 	//======================= Rotas para os graficos da dashboard ====================
 	Route::get('/embreve/{rotina}',           'HomeController@embreve');
+	Route::get('/geo',           'HomeController@geo');
 
 	//======================= API ===============================================
 	Route::get('/api/buscaCID',   				'Api\ApiController@buscaCID');   
 	Route::get('/api/buscaSUS',   				'Api\ApiController@buscaSUS');   
 	Route::get('/api/buscaProntuario',  		'Api\ApiController@buscaProntuario');   
 	Route::get('/api/buscaAcompanhamentoAtivo', 'Api\ApiController@buscaAcompanhamentoAtivo');   
+	Route::post('/api/adicionaGeocodePaciente', 			'Api\ApiController@adicionaGeocodePaciente');   
 	
 
 	
