@@ -92,7 +92,10 @@
                                 '<p><b>{{ $paciente->nome }}</b></p>' +
                             '</div>'+
                             '<div class="iw-content">' +
-		                    	'<p>{{ $paciente->cpf }}</p>'+
+		                    	'<p>{{ $paciente->nascimento }}</p>'+
+		                    '</div>' +
+							'<div class="iw-content">' +
+		                    	'<p>{{ $paciente->situacao }}</p>'+
 		                    '</div>' +
                         '</div>';
 
