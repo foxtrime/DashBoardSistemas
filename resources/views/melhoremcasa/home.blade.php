@@ -60,7 +60,7 @@
 	</div>
 	
 	<div class="row">
-		<div class="x_panel modal-content "id="address-map-container" style="width:100%;height:1200px; ">
+		<div class="x_panel modal-content "id="address-map-container" style="width:100%;height:1500px; ">
 			<div style="width: 100%; height: 100%" id="map"></div>
 		</div>
 	</div>
@@ -76,7 +76,7 @@
 		function initMap() {
 			map = new google.maps.Map(document.getElementById('map'), {
 				center: { lat: -22.782946, lng: -43.431588},
-				zoom: 14,
+				zoom: 16,
 				mapTypeControl: false,
 				animation: google.maps.Animation.DROP,
 				mapTypeId: google.maps.MapTypeId.roadmap,
