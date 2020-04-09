@@ -47,7 +47,7 @@
 						<div class="navbar nav_title" style="border: 0; text-align: center">
 							<a href="{{ route('home')}}" class="site_title">
 								<span style="color: #bfa15f; ">Dashboard</span>
-								<span style="font-size: 8px">V1.0.2</span> </a>
+								<span style="font-size: 8px">V1.0.3</span> </a>
 						</div>
 
 						<div class="clearfix"></div>
@@ -142,7 +142,7 @@
 
 		<!--  Google Maps Plugin  -->
 		<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD88keSNZva3fJ2F01M6YOw78uf3xrtU1I&libraries=places&callback=initMap">
+		<script async="false" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD88keSNZva3fJ2F01M6YOw78uf3xrtU1I&libraries=places&callback=initMap">
 		</script>
 
 

@@ -99,7 +99,7 @@
                                 '<p><b>{{ $paciente->nome }}</b></p>' +
                             '</div>'+
                             '<div class="iw-content">' +
-		                    	'<p>{{ $paciente->nascimento }}</p>'+
+		                    	'<p>Nascimento: {{ date("d/m/Y", strtotime($paciente->nascimento))  }}</p>'+
 		                    '</div>' +
 							'<div class="iw-content">' +
 		                    	'<p>{{ $paciente->situacao }}</p>'+
@@ -122,7 +122,7 @@
 		@endforeach
 		
 		var markerCluster = new MarkerClusterer(map, markers,
-    {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+    {maxZoom: 16, imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 		}
 
 		let legendas1 = [];
