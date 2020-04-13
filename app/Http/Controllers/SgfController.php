@@ -8,7 +8,6 @@ use App\Models\Veiculo;
 use App\Models\Posto;
 use App\Models\User;
 use App\Models\Abastecimento;
-use App\Models\Edicao_abastecimento;
 use Carbon\Carbon;
 use Datatables;
 
@@ -33,8 +32,9 @@ class SgfController extends Controller
 	public function index()
 	{
 		
-		$qtdVeiculos = Veiculo::on('mysql_sgf')->count();
-		dd($qtdVeiculos);
+		$qtdVeiculos = DB::connection('mysql')->table('sgf.veiculos')->get();
+		//$qtdVeiculos = Veiculo::on('mysql')->count();
+		//dd($qtdVeiculos);
 
 		
 		//================================================== SEMANAL =====================================
@@ -50,12 +50,12 @@ class SgfController extends Controller
 		
 		/* OBTEM OS ABASTECIMENTOS DA SEMANA PASSADA */
 		$abastecimentos_SP = 
-			DB::connection('mysql_sgf')->table('abastecimentos')->where('data', '>=' ,$segunda_passada)
+			DB::connection('mysql')->table('sgf.abastecimentos')->where('data', '>=' ,$segunda_passada)
 												->where('data', '<=' ,$segunda_atual)->get(); 
 
 												/* OBTEM OS ABASTECIMENTOS DA SEMANA ATUAL */
 		$abastecimentos_SA = 
-			DB::connection('mysql_sgf')->table('abastecimentos')->where('data', '>=' ,$segunda_atual)
+			DB::connection('mysql')->table('sgf.abastecimentos')->where('data', '>=' ,$segunda_atual)
 												->where('data', '<=' ,$segunda_proxima)->get(); 
 
 		/* POPULA A QUANTIDADE E TOTAL DE ABASTECIMENTOS DA SEMANA PASSADA */
@@ -109,11 +109,11 @@ class SgfController extends Controller
 		$fim_mes_atual = date("Y-m-d", strtotime('last day of this month'));// date("Y-m-d", strtotime('last day of this month')); 
 
 		/* OBTEM OS ABASTECIMENTOS DO MES PASSADO */
-		$abastecimentos_MP = DB::connection('mysql_sgf')->table('abastecimentos')->where('data', '>=' ,$ini_mes_ant)
+		$abastecimentos_MP = DB::connection('mysql')->table('sgf.abastecimentos')->where('data', '>=' ,$ini_mes_ant)
 										->where('data', '<=' ,$fim_mes_ant)->get(); 
 
 		/* OBTEM OS ABASTECIMENTOS DO MES ATUAL */
-		$abastecimentos_MA = DB::connection('mysql_sgf')->table('abastecimentos')->where('data', '>=' ,$ini_mes_atual)
+		$abastecimentos_MA = DB::connection('mysql')->table('sgf.abastecimentos')->where('data', '>=' ,$ini_mes_atual)
 										->where('data', '<=' ,$fim_mes_atual)->get(); 
 
 

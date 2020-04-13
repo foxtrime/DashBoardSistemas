@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Veiculo extends Model 
 {
-    protected $connection = 'mysql_sgf'; //altera para conectar no outro banco
+    protected $connection = 'mysql_sgf';
 
     protected $dates = ['deleted_at'];
 

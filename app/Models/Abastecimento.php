@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Abastecimento extends Model 
 {
-    protected $connection = 'mysql_sgf'; //altera para conectar no outro banco
+    protected $connection = 'mysql'; //altera para conectar no outro banco
 
     protected $dates = ['deleted_at'];
 
-    protected $table = 'abastecimentos';
+    protected $table = 'sgf.abastecimentos';
 
     protected $fillable =[
 

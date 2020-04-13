@@ -68,7 +68,7 @@ return [
             'strict' => false,
             'engine' => null,
         ],
-        
+ 
         'mysql_sgf' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST_sgf', '127.0.0.1'),
@@ -83,7 +83,7 @@ return [
             'strict' => false,
             'engine' => null,
         ],
-
+        
         'mysql_sisseg' => [
             'driver' => 'mysql',
             'host' => env('DB_SISSEG_HOST', '127.0.0.1'),
