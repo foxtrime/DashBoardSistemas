@@ -197,7 +197,7 @@ class SgfController extends Controller
 					->get();
 
 		
-		return view('sgf\home', compact('qtdVeiculos','vetor','valor_total_mensal','abastecimentos'));
+		return view('sgf.home', compact('qtdVeiculos','vetor','valor_total_mensal','abastecimentos'));
 	}
 
 
