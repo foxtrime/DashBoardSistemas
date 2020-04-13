@@ -47,7 +47,7 @@
 						<div class="navbar nav_title" style="border: 0; text-align: center">
 							<a href="{{ route('home')}}" class="site_title">
 								<span style="color: #bfa15f; ">Dashboard</span>
-								<span style="font-size: 8px">V1.0.3</span> </a>
+								<span style="font-size: 8px">V1.0.4</span> </a>
 						</div>
 
 						<div class="clearfix"></div>

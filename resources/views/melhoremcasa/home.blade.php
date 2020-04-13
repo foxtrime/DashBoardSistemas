@@ -35,7 +35,7 @@
 		<div class="x_panel modal-content " style="width:30%; margin:1px auto;" >
 			<div id="grafico2" style="width:100%; height:300%;"></div>
 		</div>
-		<div class="x_panel modal-content " style="height:322px; width:30%; margin:1px auto;">
+		<div class="x_panel modal-content " style="height:322px; width:30%; margin:1px auto; float: right;">
 			<div id="aa" style="width:100%; height:300%;">
 				
 				<table class="table table-hover table-striped tabela_compacta" id="tb_cids">

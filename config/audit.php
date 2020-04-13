@@ -125,12 +125,12 @@ return [
     |
     | Available audit drivers and respective configurations.
     |
-    */
+    */ 
 
     'drivers' => [
         'database' => [
             'table'      => 'audits',
-            'connection' => null,
+            'connection' => 'mysql',
         ],
     ],
 

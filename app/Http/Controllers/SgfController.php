@@ -33,8 +33,8 @@ class SgfController extends Controller
 	public function index()
 	{
 		
-		$qtdVeiculos = Veiculo::count();
-		//dd($qtdVeiculos);
+		$qtdVeiculos = Veiculo::on('mysql_sgf')->count();
+		dd($qtdVeiculos);
 
 		
 		//================================================== SEMANAL =====================================

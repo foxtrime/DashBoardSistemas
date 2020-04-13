@@ -41,8 +41,8 @@ class MelhorEmCasaController extends Controller
 	 */
 	public function index()
 	{
+		$pacientes = Paciente::all();
 		
-		$pacientes 						= Paciente::all();
 
 
 		// PEGA OS ENDEREÇOS E CONCATENA COM A URL
@@ -73,13 +73,15 @@ class MelhorEmCasaController extends Controller
 		$fim_mes_atual = date("Y-m-d", strtotime('last day of this month'));// date("Y-m-d", strtotime('last day of this month')); 
 
 		/* OBTEM AS VISITAS DO MES PASSADO */
-		$visitas_MP = DB::table('visitas')->where('dt_visita', '>=' ,$ini_mes_ant)
+		$visitas_MP = DB::connection('mysql_mec')->table('visitas')->where('dt_visita', '>=' ,$ini_mes_ant)
 										->where('dt_visita', '<=' ,$fim_mes_ant)->get(); 
 
 		/* OBTEM AS VISITAS DO MES ATUAL */
-		$visitas_MA = DB::table('visitas')->where('dt_visita', '>=' ,$ini_mes_atual)
+		$visitas_MA = DB::connection('mysql_mec')->table('visitas')->where('dt_visita', '>=' ,$ini_mes_atual)
 										->where('dt_visita', '<=' ,$fim_mes_atual)->get(); 
 
+
+										//
 
 		/* POPULA A QUANTIDADE E TOTAL DE VISITAS DO MÊS PASSADO */
 		$qtd_visitas_MP = 0; 
@@ -117,13 +119,13 @@ class MelhorEmCasaController extends Controller
 		
 
 		$gbairro = 
-			DB::table('pacientes')
+			DB::connection('mysql_mec')->table('pacientes')
 				->select(DB::raw("bairro, count(*) as qtd, round(count(*) * $total / 100 , 2) as percent"))
 				->groupBy('bairro')
 				->get();
 
 		$gcid = 
-			DB::table('acompanhamentos')
+			DB::connection('mysql_mec')->table('acompanhamentos')
 				->join('cids', 'acompanhamentos.cid_id', '=', 'cids.id')
 				->select(DB::raw("acompanhamentos.cid_id, cids.codigo,  cids.descricao, count(*) as qtd"))
 				->groupBy('acompanhamentos.cid_id')
